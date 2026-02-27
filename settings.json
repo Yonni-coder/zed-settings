@@ -244,6 +244,8 @@
           "useFullyQualifiedNames": false,
           "textFormat": "text",
         },
+        // Stubs: définitions pour autocomplétion/diagnostics (core PHP + extensions + frameworks).
+        // Tu peux enlever celles que tu n'utilises pas (ex: wordpress, phpunit, etc.).
         "stubs": [
           "apache",
           "bcmath",
