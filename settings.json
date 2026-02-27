@@ -1,0 +1,374 @@
+// Zed settings (JSONC)
+{
+  "audio": {},
+  // UI: onglets de fenêtre gérés par Zed (false) plutôt que par le système.
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    // Désactive l'ouverture automatique de fichiers en preview depuis le file finder.
+    // Utile si tu préfères que chaque ouverture crée un vrai tab.
+    "enable_preview_from_file_finder": false
+  },
+  "which_key": {
+    // Which-key (popup des raccourcis) — désactivé ici pour un comportement plus "VSCode-like".
+    "enabled": false
+  },
+  "autosave": {
+    "after_delay": {
+      // Autosave après 1s d'inactivité.
+      "milliseconds": 1000,
+    },
+  },
+  // Wrap des lignes longes à la largeur de l'éditeur.
+  "soft_wrap": "editor_width",
+  // Formatter global par défaut.
+  "formatter": "prettier",
+  // Format à chaque sauvegarde
+  "format_on_save": "on",
+  "agent": {
+    "default_model": {
+      // Modèle IA utilisé par défaut dans Zed Agent.
+      // A adapter selon tes clés / provider (Anthropic, OpenAI, etc.).
+      "provider": "anthropic",
+      "model": "claude-3-haiku-20240307",
+      "enable_thinking": false,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "icon_theme": "Material Icon Theme",
+  "telemetry": {
+    // Vie privée: désactive l'envoi de diagnostics et métriques.
+    "diagnostics": false,
+    "metrics": false,
+  },
+  // Keymap: permet de garder tes réflexes VSCode.
+  "base_keymap": "VSCode",
+  "status_bar": {
+    "experimental.show": true,
+  },
+  "scrollbar": {
+    "axes": {
+      // Scrollbar verticale masquée (gain de place).
+      "vertical": false,
+    },
+  },
+  "buffer_font_fallbacks": [
+    ".ZedMono"
+  ],
+  // Police: assure-toi que JetBrains Mono est installée sur ta machine.
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_features": {
+    "liga": true,
+  },
+  // Tailles de police (UI vs éditeur)
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato",
+  },
+  // Auto-close des brackets/quotes.
+  "use_autoclose": true,
+  "languages": {
+    "TypeScript": {
+      "tab_size": 2,
+      // "soft_wrap": "",
+      // LSP: emmet pour abréviations HTML/CSS dans TS/TSX (React, etc.).
+      // "..." = laisse Zed choisir le reste des serveurs de langue.
+      "language_servers": [
+        "emmet-ls",
+        "..."
+      ],
+      "code_actions_on_format": {
+        // Actions automatiques: imports + eslint + nettoyage.
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true,
+        "source.addMissingImports": true,
+      },
+    },
+    "TSX": {
+      "tab_size": 2,
+      // "soft_wrap": "none",
+      "language_servers": [
+        "emmet-ls",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true,
+        "source.addMissingImports": true,
+      },
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      // "soft_wrap": "none",
+      "language_servers": [
+        "emmet-ls",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true,
+      },
+    },
+    "JSX": {
+      "tab_size": 2,
+      // "soft_wrap": "none",
+      "language_servers": [
+        "emmet-ls",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+    "HTML": {
+      "tab_size": 2,
+      // "soft_wrap": "editor_width",
+      "format_on_save": "on",
+    },
+    "CSS": {
+      "tab_size": 2,
+      // "soft_wrap": "none",
+    },
+    "JSON": {
+      "tab_size": 2,
+    },
+    "PHP": {
+      "tab_size": 4,
+      // "soft_wrap": "none",
+      // intelephense = LSP PHP (recommandé pour Laravel / Symfony etc.).
+      "language_servers": [
+        "intelephense",
+        "!phpactor",
+        "!phptools",
+        "..."
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          // Laravel Pint (ou un binaire compatible) si tu l'as dans ./vendor.
+          // Si ton projet n'est pas PHP/Composer, tu peux supprimer ce formatter.
+          "command": "./vendor/bin/pint",
+          "arguments": [
+            "--quiet",
+            "{buffer_path}"
+          ],
+        },
+      },
+    },
+    "Blade": {
+      "tab_size": 4,
+      // "soft_wrap": "editor_width",
+      "language_servers": [
+        "..."
+      ],
+      // Blade: souvent mieux de laisser le formatage off (selon ton setup).
+      "format_on_save": "off",
+    },
+  },
+  "lsp": {
+    "emmet-ls": {
+      "initialization_options": {
+        "showExpandedAbbreviation": "always",
+        "showAbbreviationSuggestions": true,
+        "showSuggestionsAsSnippets": true,
+        "triggerExpansionOnTab": true,
+        "excludeLanguages": [],
+      },
+    },
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          // Préférences TS: imports non-relatifs + doubles quotes + inlay hints.
+          "importModuleSpecifier": "non-relative",
+          "quotePreference": "double",
+          "includeInlayParameterNameHints": "literals",
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": false,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeCompletionsForModuleExports": true,
+          "includeCompletionsWithInsertText": true,
+        },
+      },
+    },
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          // Restreint les rules auto-fixées (évite des changements trop agressifs).
+          "rules": [
+            "@typescript-eslint/no-unused-vars",
+            "import/order"
+          ],
+        },
+        "experimental": {
+          "useFlatConfig": true,
+        },
+      },
+    },
+    "intelephense": {
+      "initialization_options": {
+        // IMPORTANT: ne commit jamais une vraie clé licence.
+        // Remplace localement par ta clé (ou utilise un mécanisme de secret si besoin).
+        "licenceKey": "VOTRE_CLÉ_ICI",
+        "files": {
+          "maxSize": 5000000,
+          "associations": [
+            "*.php",
+            "*.blade.php"
+          ],
+          "exclude": [
+            "**/.git/**",
+            "**/node_modules/**",
+            "**/vendor/**/vendor/**",
+            "**/storage/**",
+          ],
+        },
+        "environment": {
+          "phpVersion": "8.4",
+          "includePaths": [],
+        },
+        "completion": {
+          "insertUseDeclaration": true,
+          "fullyQualifyGlobalConstantsAndFunctions": false,
+          "triggerParameterHints": true,
+          "maxItems": 100,
+        },
+        "phpdoc": {
+          "returnVoid": false,
+          "useFullyQualifiedNames": false,
+          "textFormat": "text",
+        },
+        "stubs": [
+          "apache",
+          "bcmath",
+          "bz2",
+          "calendar",
+          "com_dotnet",
+          "Core",
+          "ctype",
+          "curl",
+          "date",
+          "dba",
+          "dom",
+          "enchant",
+          "exif",
+          "FFI",
+          "fileinfo",
+          "filter",
+          "fpm",
+          "ftp",
+          "gd",
+          "gettext",
+          "gmp",
+          "hash",
+          "iconv",
+          "imap",
+          "intl",
+          "json",
+          "ldap",
+          "libxml",
+          "mbstring",
+          "meta",
+          "mysqli",
+          "oci8",
+          "odbc",
+          "openssl",
+          "pcntl",
+          "pcre",
+          "PDO",
+          "pdo_ibm",
+          "pdo_mysql",
+          "pdo_pgsql",
+          "pdo_sqlite",
+          "pgsql",
+          "Phar",
+          "posix",
+          "pspell",
+          "random",
+          "readline",
+          "Reflection",
+          "session",
+          "shmop",
+          "SimpleXML",
+          "snmp",
+          "soap",
+          "sockets",
+          "sodium",
+          "SPL",
+          "sqlite3",
+          "standard",
+          "superglobals",
+          "sysvmsg",
+          "sysvsem",
+          "sysvshm",
+          "tidy",
+          "tokenizer",
+          "xml",
+          "xmlreader",
+          "xmlrpc",
+          "xmlwriter",
+          "xsl",
+          "Zend OPcache",
+          "zip",
+          "zlib",
+          "wordpress",
+          "phpunit",
+        ],
+      },
+    },
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+    "file_icons": true,
+    "git_status": true,
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
+    "show": true,
+    "show_nav_history_buttons": false,
+  },
+  "project_panel": {
+    "bold_folder_labels": false,
+    "hide_gitignore": false,
+    "button": true,
+    "dock": "left",
+    "sort_mode": "directories_first",
+  },
+  // Limite le nombre de tabs ouverts 
+  "max_tabs": 6,
+  "diagnostics": {
+    "include_warnings": true,
+    "button": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 2,
+      "min_column": 0,
+      "max_severity": null,
+    },
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": false,
+      "enabled": true,
+      "delay_ms": 600,
+    },
+  },
+  "relative_line_numbers": "disabled",
+  // "inlay_hints": {
+  //   "enabled": true,
+  //   "show_type_hints": true,
+  //   "show_parameter_hints": true,
+  //   "show_other_hints": true,
+  // },
+}
