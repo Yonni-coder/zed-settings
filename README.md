@@ -1,4 +1,4 @@
-# Zed settings 
+# Zed settings
 
 Ce repo contient mon fichier `settings.json` pour l’éditeur **Zed**.
 
@@ -6,6 +6,36 @@ L’objectif est double:
 
 - **Reproductibilité**: je peux retrouver ma config rapidement sur une nouvelle machine.
 - **Partage**: tu peux cloner, piocher des idées, et adapter.
+
+## Prérequis / extensions
+
+Pour profiter à plein de cette config, assure-toi d’avoir :
+
+### Dans Zed (extensions)
+
+- **Prettier** (pour le formatage global)
+- **ESLint** (si tu utilises des projets JS/TS avec ESLint)
+- **Intelephense** (LSP PHP, si tu fais du PHP/Laravel)
+- **Material Icon Theme** (optionnel, si tu veux les icônes)
+- **Catppuccin Macchiato** (thème dark utilisé ici)
+- **One Light** (thème light utilisé ici)
+
+### Language servers (LSP)
+
+- **typescript-language-server** (pour TS/TSX/JS/JSX)
+- **emmet-ls** (pour les abréviations HTML/CSS dans TS/TSX/JS/JSX/HTML)
+- **eslint** (linting + actions auto-fixes)
+- **intelephense** (LSP PHP)
+
+> Note : Zed peut installer ces extensions via le panneau Extensions (Ctrl+Shift+P → “Extensions”).
+
+### Dans tes projets (dépendances)
+
+- **JavaScript/TypeScript** :
+  - `prettier` (devDependency) pour le formatage
+  - `eslint` (et `@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin` si TS)
+- **PHP/Laravel** :
+  - `composer install` (pour avoir `./vendor/bin/pint` si tu utilises Laravel Pint)
 
 ## Installation
 
