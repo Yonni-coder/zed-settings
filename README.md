@@ -1,4 +1,4 @@
-# Zed settings (opinionated)
+# Zed settings 
 
 Ce repo contient mon fichier `settings.json` pour l’éditeur **Zed**.
 
